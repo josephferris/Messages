@@ -1,0 +1,470 @@
+@mixin box-shadow {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px 3px 5px 0px rgba(53, 60, 72, 0.20);
+  // -webkit-box-shadow: 0px 3px 5px 0px rgba(53, 60, 72, 0.20);
+}
+
+.page {
+
+  &__container {
+    width: auto;
+    min-width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  &__header {
+    @include box-shadow;
+    background: $default-background-color;
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    min-height: 85px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 2;
+
+    .header {
+      // @include box-shadow;
+      background: $default-background-color;
+      position: absolute;
+      top: 0;
+      width: auto;
+      min-width: 100%;
+      // styles below here are correct
+      height: auto;
+      min-height: 80px;
+      z-index: 10;
+    }
+  }
+
+  .form {
+    &__navigation {
+      -webkit-box-shadow: 0px 3px 5px 0px rgba(53, 60, 72, 0.2);
+      box-shadow: 0px 3px 5px 0px rgba(53, 60, 72, 0.2);
+      position: fixed;
+      top: 75px;
+      width: 100%;
+      margin: 0;
+      z-index: 10;
+      background: white;
+      height: 75px;
+      border-top: solid 0.25px #dedcdc;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    width: 100%;
+    min-height: 80px;
+
+    .nav {
+      &__list {
+        display: flex;
+        padding: 20px 0;
+        max-width: 75%;
+        margin: auto;
+        padding: 17px 0;
+        height: calc(75px - 17px - 17px);
+      }
+
+      &__item {
+        display: inline-flex;
+        flex: auto;
+        padding: 10px 15px;
+        justify-content: center;
+
+        a {
+          text-transform: uppercase;
+          text-decoration: none;
+          font-family: Gotham Rounded;
+          font-weight: 500;
+          color: #6a7589;
+        }
+      }
+    }
+
+    .logo {
+      transition: all 0.25s;
+      -moz-box-flex: 275px;
+      -ms-flex: 275px;
+      flex: 275px;
+
+      a {
+        display: block;
+        line-height: 85px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      a img {
+        background: url(../images/messages-logo-icon.png) no-repeat;
+        height: 85px;
+        width: 275px;
+        background: url(../images/messages-logo.jpg) no-repeat;
+        background-size: contain;
+        background-position: center;
+        margin: 0 25px;
+      }
+    }
+
+    .instructions {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -moz-flex;
+      display: -webkit-flex;
+      display: flex;
+      flex-wrap: wrap;
+      flex: auto;
+      align-items: center;
+
+      .set-registry {
+        padding: 0 25px 0 0;
+        position: relative;
+        top: 10px;
+        font-size: 13px;
+      }
+
+      .add-user {
+        padding: 0 25px 0 0;
+        position: relative;
+        top: -10px;
+        font-size: 13px;
+      }
+    }
+
+    .login {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+      -webkit-justify-content: flex-end;
+      justify-content: flex-end;
+      flex: 60%;
+
+      &__button {
+        margin: 20px;
+        background-color: $messages-blue;
+        border-radius: 2px;
+        border: none;
+        height: 45px;
+        color: white;
+        align-content: space-around;
+        min-width: 100px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 13px;
+
+        &:hover {
+          background-color: darken($messages-blue, 2%);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__title {
+    display: -ms-flexbox;
+    display: flex;
+    height: auto;
+    min-height: 45px;
+    padding: 0;
+    position: relative;
+    flex-wrap: wrap;
+
+    .available-packages {
+      display: inline-block;
+      -moz-box-flex: 40%;
+      -ms-flex: 40%;
+      flex: 40%;
+      vertical-align: top;
+      transition: flex .2s,margin .2s,width .2s;
+      transition: flex .2s,margin .2s,width .2s,-ms-flex .2s;
+
+      h1 {
+        font-size: 30px;
+        margin: 0;
+        margin-bottom: 15px;
+        text-align: left;
+        padding: 0;
+      }
+    }
+
+    .package-form {
+      display: inline-block;
+      flex: 0 0 35%;
+      background: #f7f7f7;
+
+      input {
+        width: 200px;
+        position: relative;
+        top: 3px;
+        line-height: 45px;
+        height: 45px;
+      }
+
+      button {
+        margin: 0;
+        background-color: $messages-blue;
+        border: none;
+        height: 45px;
+        color: white;
+        align-content: space-around;
+        min-width: 100px;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 13px;
+        position: relative;
+        top: 1px;
+        box-shadow: none;
+        border: 1px solid $messages-blue;
+      }
+    }
+  }
+
+  &__content {
+    background-color: #D6CEBD;
+    margin: auto;
+    min-height: 100%;
+    min-height: 500px;
+    height: auto;
+    margin: auto;
+    min-height: 100%;
+    min-height: 500px;
+    width: auto;
+
+    .wrapper {
+      max-width: 1350px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 10px;
+      position: relative;
+      padding-top: 50px;
+      padding: 0;
+    }
+  }
+
+  .form {
+    max-width: 95%;
+    margin: 50px auto;
+  }
+
+  .content {
+    &__bundle {
+      // @include box-shadow;
+      // -webkit-box-shadow: 0px 5px 20px 0px rgba(53, 60, 72, 0.38);
+      // box-shadow: 0px 5px 20px 0px rgba(53, 60, 72, 0.38);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      background: $default-background-color;
+      padding: 25px;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+
+      &-title {
+        padding-bottom: 10%;
+        margin-bottom: 10%;
+        // position: relative;
+        // top: 25px;
+
+        &:after {
+          content: "";
+          margin-bottom: 100px;
+        }
+        .site-search--themed {
+          padding-bottom: 10%;
+        }
+      }
+    }
+  }
+}
+
+.form  {
+  input, textarea {
+    background: #f5f5f5;
+    border: 0;
+    border: 1px solid transparent;
+    resize: none;
+    padding: 10px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    border-radius: 0;
+    background: #f9f9f9;
+    border: 0;
+    border: 1px solid #ccc2c2;
+    // width: 100%;
+    // flex: 75%;
+    // display: flex;
+    // min-width: inherit;
+    // max-width: inherit;
+  }
+}
+
+.package-search {
+
+  input {
+    border: none;
+    height: 35px;
+    line-height: 35px;
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #ccc2c2;
+    margin-right: -5px;
+
+    &:focus {
+      outline: none;
+      border-color: #177be3;
+    }
+  }
+}
+
+.Field {
+  display: flex;
+}
+
+.SearchBox-query {
+  /* Shrink and grow as needed, but never shrink so
+     small that we can't read the placeholder */
+  flex: 1 0 8em;
+}
+
+.SearchBox-submitBtn {
+  /* Never shrink or grow */
+  flex: 0 0 auto;
+}
+
+.Field--is-search:before {
+  /* Don't shrink or grow and use a default size */
+  flex: 0 0 2.75em;
+
+  /* Use flexbox to center the icon */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  margin-bottom: 100px;
+}
+
+input,
+button,
+.SearchBox:before {
+  padding: .35em .75em;
+  border: none;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+/* LAYOUT */
+.Field {
+  display: flex;
+}
+
+.SearchBox-query {
+  // Shrink and grow as needed, but never shrink so
+  // small that we can't read the placeholder
+  flex: 1 0 8em;
+}
+
+.SearchBox-submitBtn {
+  // Never shrink or grow
+  flex: 0 0 auto;
+}
+
+.Field--is-search:before {
+  // Don't shrink or grow and use a default size
+  flex: 0 0 2.75em;
+
+  // Use flexbox to center the icon
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* VISUAL DESIGN DETAILS */
+.SearchBox {
+  margin: 3rem auto 0;
+  max-width: 80%;
+}
+
+.Field--is-search:before {
+  border-radius: 2px 0 0 2px;
+  background: #ccc;
+
+  font-family: 'FontAwesome';
+  font-weight: normal;
+  font-style: normal;
+  color: #797979;
+
+  content: "\f002";
+}
+
+.SearchBox-query {
+  background: #e9e9e9;
+
+  // Make sure the placeholder isn't poorly cut off
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.SearchBox-query:focus {
+  background: white;
+  outline: none;
+}
+
+.SearchBox-submitBtn {
+  border-radius: 0 2px 2px 0;
+  background: #9792E3;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #EDFFEC;
+}
+
+entry {
+  .l-col {
+    // padding-bottom: 3%;
+  }
+}
+
+@media(min-width: 800px) {
+  .Container {
+    margin: 0 auto;
+    padding: 0 16px;
+    max-width: 95%;
+    width: auto;
+    // max-width: 1100px;
+    // width: 100%;
+  }
+
+  .page__title .package-form input {
+    border: 0.15px solid gray;
+    border-radius: 0;
+    color: gray;
+    width: calc(100% - 100px);
+    // width: calc(400px - 100px);
+  }
+}
+
+@media(max-width: 800px) {
+  .Container {
+    max-width: calc(100% - 25px);
+    padding: 0;
+    margin: auto;
+  }
+
+  .page__title .package-form {
+    flex: 100%;
+
+    input {
+      width: calc(100% - 100px);
+    }
+  }
+}

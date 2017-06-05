@@ -1,0 +1,14 @@
+node_modules/
+backup/
+build/
+coverage/
+dist/
+workspace/
+.DS_STORE
+*.log
+.opt-in
+.nyc_output/
+.vscode/
+.eslintcache
+.sass-cache
+serviceAccountKey.json

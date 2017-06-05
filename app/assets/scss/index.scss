@@ -1,0 +1,92 @@
+@import './base/normalize';
+@import './base/variables';
+@import './base/global';
+
+@import './config/variables';
+@import './layout/scaffold';
+
+@import './mixins/box-shadow';
+@import './mixins/align-content';
+@import './mixins/align-items';
+
+@import './partials/page-header';
+@import './partials/page-nav';
+@import './partials/page-footer';
+@import './partials/page';
+@import './partials/messages';
+
+@import './partials/flexbox';
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx), (min-resolution: 144dpi) {
+  html {
+    font-weight: 300;
+  }
+}
+
+html {
+  height: 100%;
+  color: #404040;
+  font: 400 1em/1.4 'Open Sans',sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.Site {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+
+  &-content:after {
+    content: '\00a0';
+    display: block;
+    margin-top: 1.5em;
+    height: 0;
+    visibility: hidden;
+  }
+}
+
+.Site-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  flex: 1 0 auto;
+  padding: 1.5em 1.5em 0;
+  width: 100%;
+}
+
+.Site-footer, .Site-header {
+  -webkit-box-flex: 0;
+  -webkit-flex: none;
+  flex: none;
+}
+
+
+.Header {
+  padding: 1.5em;
+  background-color: hsla(31,15%,50%,.1);
+  text-align: center;
+
+  &-titles {
+    -webkit-box-align: baseline;
+    -webkit-align-items: baseline;
+    align-items: baseline;
+  }
+
+  &-actions {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    font-size: .9em;
+  }
+}
+

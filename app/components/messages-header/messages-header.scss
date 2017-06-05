@@ -1,0 +1,592 @@
+$contact-list-background-left: #E9E9E9;
+
+@import '../../assets/scss/mixins/box-shadow';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css');
+
+// Variables for box and CSS triangles
+
+$body-bg:           white; // Body background color;
+$gutter:            15px; // Padding for elements;
+
+$box-size:          220px; // Width of box - height will adjust to 2/3 of set size;
+$box-bg:            lighten(desaturate(#ff2200,40%),10%); // Box background color;
+$margin:            50px; // Margin around box - not necessarily needed;
+
+$border:            $box-size/20; // Adjusts based on $box-size;
+$border-color:      $box-bg; // Adjusts based on $box-bg;
+$rounded:           $border/4; // Adjusts based on $border;
+
+// End Variables
+
+// Begin Joey Ferris: Variables
+
+$contact-list-border: #AAAAAA;
+
+// End Joey Ferris: Variables
+
+* {
+  box-sizing: border-box;
+}
+
+.input {
+  &__new-message {
+    background: inherit;
+    height: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+    margin: auto;
+    margin-left: 0;
+    line-height: 30px;
+    font-size: 12px;
+    margin-bottom: 0;
+    padding-left: 5px;
+    margin-top: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.to-recipients {
+  color: #8B7C77;
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  margin: auto;
+  margin-left: 0;
+  line-height: 20px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-top: auto;
+  margin-right: 0;
+  justify-content: center;
+  align-items: flex-end;
+  font-weight: 500;
+  // padding-bottom: 5px;
+  // position: relative;
+  // bottom: 10px;
+}
+
+.add-icon {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  padding-bottom: 8px;
+  padding-right: 10px;
+
+  .circle-icon-plus {
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    border: 0.5px solid #4CB5F6;
+    background: transparent;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4CB5F6;
+  position: relative;
+  bottom: 6px;
+}
+
+.contacts-list__header input:focus {
+
+}
+
+.contacts-list {
+  height: 450px;
+  width: 300px;
+  background: #E2E2E2;
+  position: fixed;
+  right: 150px;
+  top: 50px;
+  border-radius: 10px;
+  border: 0.5px solid $contact-list-border;
+
+  &__header {
+    // background: #F6F6F6;
+    // background-color: #EFEFEF;
+    // border-bottom: 0.25px solid rgba(128, 128, 128, 0.5);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    background: #EFEFEF;
+    width: 100%;
+    border-bottom: 0.05px solid rgba(128, 128, 128, 0.25);
+    z-index: 1;
+
+    .search-icon-1 {
+      svg {
+        top: 11px;
+        height: 22px;
+        width: 22px;
+        z-index: 3;
+        position: relative;
+        right: 25px;
+      }
+    }
+
+    .search-icon {
+      width: 100%;
+      margin: auto;
+      margin-left: 0;
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      height: 40px;
+
+      svg {
+        left: 15px;
+        top: 10px;
+        height: 22px;
+        width: 22px;
+        z-index: 3;
+        position: absolute;
+        // left: 0;
+        // // left: 40%;
+        // top: 11px;
+        // height: 22px;
+        // width: 22px;
+        // z-index: 3;
+        // position: relative;
+        // // right: 25px;
+      }
+
+      &:focus {
+        outline: none;
+
+        input {
+          text-align: right;
+        }
+
+        svg {
+          left: 15px;
+          right: 50%;
+          position: absolute;
+          top: 10px;
+        }
+      }
+
+      &:focus {
+        left: 12px;
+      }
+
+      .test {
+        position: relative;
+        top: 10px;
+
+        &-placeholder {
+          font-size: 13px;
+          text-align: left;
+        }
+      }
+    }
+
+    input {
+      transition: 0.5s text-align cubic-bezier(0.25, 0.8, 0.25, 1);
+      background: #DBDBDB;
+      border: 0.25px solid #CBCBCB;
+      border-radius: 3px;
+      color: #000000;
+      display: inherit;
+      position: absolute;
+      top: 0;
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px;
+      line-height: 25px;
+      height: 25px;
+      font-size: 13px;
+      padding-left: 25px;
+      margin-top: 8px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+
+
+      &:focus + .input__label--akira .input__label-content--akira, .input--filled .input__label-content--akira {
+        -webkit-transform: translate3d(0, -3.5em, 0);
+        transform: translate3d(0, -3.5em, 0);
+      }
+
+      .input__label-content--akira {
+        -webkit-transition: -webkit-transform 0.3s;
+        transition: transform 0.3s;
+      }
+
+      &:focus {
+        outline: none;
+        text-align: left;
+      }
+    }
+  }
+
+  &__body {
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 40px);
+
+    .left {
+      background: $contact-list-background-left;
+      flex: 50%;
+      border-bottom-left-radius: 10px;
+    }
+
+    .right {
+      background: #F2F2F2;
+      flex: 50%;
+      border-left: 0.5px solid #CBCBCB;
+      border-bottom-right-radius: 10px;
+
+      .my-card-title {
+        color: #3E3E3E;
+        opacity: 0.75;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+#triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid #F6F6F6;
+  margin: auto;
+  position: relative;
+  top: -20px;
+}
+
+.triangle-container {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  background: #fffbfb;
+  border-left: 1px solid #aaaaaa;
+  border-top: 1px solid #aaaaaa;
+  // Example usage starts here
+  // margin-left: 15px;
+  // width: 25px;
+  // height: 25px;
+  // background: #FFFFFF;
+  // border: 1px solid #CAD5E0;
+  // padding: 4px;
+  // position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10px;
+    right:-7px;
+    width: 10px;
+    height: 10px;
+    background: #FFFFFF;
+    border-right:1px solid #CAD5E0;
+    border-bottom:1px solid #CAD5E0;
+    -moz-transform:rotate(45deg);
+    -webkit-transform:rotate(45deg);
+  }
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+
+  border-bottom: 15px solid #F6F6F6;
+  margin: auto;
+  position: relative;
+  top: -50px;
+}
+
+// box styles
+
+.box {
+  width: $box-size; // Either use the variables above or set your CSS here instead;
+  height: $box-size/3*2;
+  float: left;
+  margin: $margin/2;
+  background-color: $box-bg;
+  padding: $gutter;
+  border-radius: $rounded;
+  // position: relative; // Needed so that absolute positioned triange will display correctly;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  p {
+    margin: auto;
+  }
+}
+
+// End of box
+
+.container {
+  // @include box-shadow;
+  // box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.25);
+  // -webkit-box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.25);
+  // border: 0.5px solid #AAAAAA;
+  // background: #E2E2E2;
+  // border: 0.5px solid #AAAAAA;
+  // box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 4px 5px 18px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin: 15px 30px;
+  min-width: 365px;
+  background: #fff;
+  position: relative;
+  min-height: 465px;
+  padding: 20px;
+  text-align: center;
+  color: gray;
+  font: bold 1.5em/180px Helvetica, sans-serif;
+  // text-shadow: 0 0 1px grey;
+  position: absolute;
+  right: calc(-5% - 155px);
+  z-index: 100;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 0;
+  height: 450px;
+  width: 300px;
+  background: transparent;
+  position: fixed;
+  // right: 147px;
+  right: 122px;
+  top: 71px;
+  border-radius: 10px;
+}
+
+.container:after,
+.container:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  -webkit-transform: translateX(-50%) translateY(-12px) rotate(-90deg);
+  // -webkit-transform-origin: 0 -250px;
+
+  transform: translateX(-50%) translateY(-12px) rotate(-90deg);
+  // transform-origin: 0 -250px;
+}
+
+.container:after {
+  top: -13px;
+  border-color: transparent transparent transparent rgb(245, 245, 245);
+  border-width: 13px;
+}
+
+.container:before {
+  top: -14px;
+  border-color: transparent transparent transparent #C7C7C7;
+  border-width: 13px;
+}
+
+
+// End Triangle
+
+.triangle {
+  &:before {
+    content: "";
+    width: 0; // Both width + height set to 0 so that only the border is displayed;
+    height: 0;
+    position: absolute;
+    z-index: 1;
+    border-width: $border;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  &.top {
+    &:before {
+      border-bottom-color: $border-color;
+      top: -($border*2); // Negative figure to move triangle to outer edge of parent element;
+      left: 50%; // Left position 50% to center triangle;
+      transform: translateX(-50%); // TranslateX set to -50% makes sure that the triangle is exactly centered;
+    }
+  }
+  &.right {
+    &:before {
+      border-left-color: $border-color;
+      right: -($border*2);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &.bottom {
+    &:before {
+      border-top-color: $border-color;
+      bottom: -($border*2);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &.left {
+    &:before {
+      border-right-color: $border-color;
+      left: -($border*2);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-2 {
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.card-4 {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-5 {
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+
+.right-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-left: 15px;
+
+  &__item {
+    color: black;
+    font-size: 13px;
+    font-weight: lighter;
+    text-align: left;
+
+    p {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    hr {
+      margin-top: 2px;
+      opacity: 0.75;
+    }
+  }
+}
+
+.left-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 15px;
+
+  &__item {
+    color: #3E3E3E;
+    font-size: 13px;
+    font-weight: lighter;
+    text-align: left;
+  }
+}
+
+.new-chat-hidden {
+  display: none;
+}
+
+.new-chat-visible {
+  display: flex;
+}
+
+.new-chat-overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  background: transparent;
+  opacity: 0.25;
+  left: 0;
+  top: 0;
+}
+
+.new-chat-overlay--hidden{
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+}
+
+.new-chat-container--hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+#empty-message {
+  .header__send-to {
+    background: #F6F6F6;
+    border-bottom: 0.5px solid #DEDEDE;
+    position: absolute;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+  }
+
+  .to-recipients {
+    margin: 0;
+  }
+
+  .input__new-message {
+    height: auto;
+    margin: 0;
+    padding-left: 3px;
+    // padding-bottom: 0;
+    // padding-top: 24px;
+  }
+}
+
