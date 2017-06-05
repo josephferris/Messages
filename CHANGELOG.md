@@ -8,4 +8,4 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-* **initial-release:**  Initial commit ([](https://github.com/josephferris/messages/commit/))
+* **initial-release:**  Initial commit ([0708509](https://github.com/josephferris/messages/commit/0708509))
