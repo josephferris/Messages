@@ -12,7 +12,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "classnames": "2.2.5",
-    "firebase-admin": "8.3.0",
+    "firebase-admin": "11.4.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "socket.io": "2.4.0",
